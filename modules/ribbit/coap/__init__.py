@@ -446,9 +446,7 @@ class Coap:
             if self._ssl is not False:
                 ctx = self._ssl
                 if ctx is True:
-                    ctx = ssl.SSLContext(
-                        ssl.PROTOCOL_DTLS_CLIENT
-                    )
+                    ctx = ssl.SSLContext(ssl.PROTOCOL_DTLS_CLIENT)
 
                 sock = ctx.wrap_socket(
                     sock,
@@ -780,7 +778,7 @@ class BlockReader:
                 continue
 
             break
-                    
+
         if len(buf) < len(response.payload):
             raise ValueError("buffer too small")
 

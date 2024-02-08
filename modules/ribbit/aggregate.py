@@ -15,7 +15,6 @@ class SensorAggregator:
 
         asyncio.create_task(self._loop())
 
-
     async def _loop(self):
         while True:
             # Send a data point every 5 seconds
@@ -49,7 +48,6 @@ class SensorAggregator:
                         "allocated": sensor.allocated,
                         "free": sensor.free,
                     }
-
 
             self._logger.info("Aggregated Data: %s", json.dumps(ret))
             try:

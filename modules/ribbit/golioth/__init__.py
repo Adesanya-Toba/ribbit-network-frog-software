@@ -75,7 +75,9 @@ class Golioth:
     async def _loop(self):
         with self._config.watch(*_CONFIG_KEYS) as cfg_watcher:
             while True:
-                enabled, host, port, user, password, self._ota_enabled = cfg_watcher.get()
+                enabled, host, port, user, password, self._ota_enabled = (
+                    cfg_watcher.get()
+                )
 
                 enabled = enabled and (user is not None and password is not None)
 
@@ -88,9 +90,8 @@ class Golioth:
                     self._logger.info("Starting Golioth integration")
 
                     import ssl
-                    ctx = ssl.SSLContext(
-                        ssl.PROTOCOL_DTLS_CLIENT
-                    )
+
+                    ctx = ssl.SSLContext(ssl.PROTOCOL_DTLS_CLIENT)
                     ctx.set_ciphers(["TLS-PSK-WITH-AES-128-CBC-SHA256"])
                     ctx.set_psk(user, password)
 

@@ -28,10 +28,11 @@ def _append_checksum(packet):
         checksum,
     )
 
+
 def _obfuscate_gps_coordinate(coordinate):
     """
     Returns the coordinate, rounded to 2 digits of precision.
-    
+
     Github Issue: #30
     https://github.com/Ribbit-Network/ribbit-network-frog-software/issues/30
     """
@@ -39,6 +40,7 @@ def _obfuscate_gps_coordinate(coordinate):
 
     obfuscated = round(coordinate, gps_digits_precision)
     return obfuscated
+
 
 class GPS(_base.BaseSensor):
     config = _config.Object(

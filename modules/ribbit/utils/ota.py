@@ -21,6 +21,7 @@ class OTAManager:
             return
 
         import esp32
+
         esp32.Partition.mark_app_valid_cancel_rollback()
 
     async def do_ota_update(self, u):

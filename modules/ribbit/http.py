@@ -42,7 +42,7 @@ def build_app(registry):
             headers["Cache-Control"] = "public, max-age=604800, immutable"
 
         return data, 200, headers
-    
+
     @app.route("/api/sensors")
     @with_websocket
     async def sensor_status(request, ws):
@@ -86,7 +86,7 @@ def build_app(registry):
             out["domain"] = DOMAIN_NAMES[domain]
             if not key_info.protected:
                 out["value"] = value
-        
+
         return json.dumps(ret), 200, {"Content-Type": "application/json"}
 
     @app.patch("/api/config")

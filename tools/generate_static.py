@@ -8,7 +8,7 @@ with open("modules/ribbit/_static.py", "w") as o:
 
     for dirpath, dirs, files in os.walk(BASE_PATH):
         assert dirpath.startswith(BASE_PATH)
-        relative_dirpath = "/" + dirpath[len(BASE_PATH):]
+        relative_dirpath = "/" + dirpath[len(BASE_PATH) :]
         for filename in files:
             relative_filepath = os.path.join(relative_dirpath, filename)
             filepath = os.path.join(dirpath, filename)
