@@ -1,0 +1,18 @@
+name: Running linter and SCA
+
+on: [push]
+
+jobs:
+  run_linter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install and run Flake8
+        run: |
+            pip install flake8
+            flake8 .
